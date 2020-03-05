@@ -2,6 +2,8 @@
 
 > A compilation of various Bash scripts I've created on the fly to help me deal with life on a terminal.
 
+<br/>
+
 ## Installation:
 
 - Clone this repo and copy all scripts (*bashTools*) into your PATH (can be found by running `echo $PATH`)

@@ -1,0 +1,29 @@
+#!/bin/bash
+## Author:	Owen Cocjin
+## Version:	1.0
+## Date:	05/03/20
+## Title:	fillSpaces
+## Description: Replace all spaces with '_' for all files in current directory
+## Notes:
+
+fillSpaces(){
+	for i in *; do
+		old="$i"
+
+		#If -c flag passed, remove special chars as well as fill spaces
+		if [[ $1 == '-c' ]]; then
+			old=$(sed -r 's/[()\&\\]*//g' <<< $i)
+			if [[ $old != $i ]]; then
+				echo "$i -> $old"
+				mv ./"$i" ./"$old" &> /dev/null
+			fi
+		fi
+
+		#Fill Spaces
+		if [[ "$i" == *' '* ]]; then
+			new=$(sed 's/ /_/g' <<< $old)
+			echo "$old -> $new"
+			mv ./"$old" ./"$new" &> /dev/null
+  	fi
+	done
+}
