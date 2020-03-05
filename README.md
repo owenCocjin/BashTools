@@ -17,6 +17,10 @@ OR
 
 ## Usage:
 
-- After installing, you can run any of the following as commands. Each one has a help menu (normally -h):
+- After installing, you can run any of the following as commands:
 	* cl
+	* fillSpaces
+	* n
+	* resetWifi
 	* stickynotes
+	* wttr
