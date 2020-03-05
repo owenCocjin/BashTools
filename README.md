@@ -6,12 +6,19 @@
 
 ## Installation:
 
-- Clone this repo and copy all scripts (*bashTools*) into your PATH (can be found by running `echo $PATH`)
+Preferred:
+- Clone repo and add `bashTools` to PATH
+> You must add 2 lines to your .bashrc. The following command will do it for you! The following assumes you put *bashTools* in `/usr/local/bin/`:
+```
+echo -e '\nexport PATH="$PATH:/usr/local/bin/bashTools"\n. /usr/local/bin/bashTools/sources\n' >> ~/.bashrc
+```
 
-OR
+Or you could manually add the lines:
 
-- Clone repo and add to PATH
-> To add to PATH, you need to edit `~/.bashrc`. Add the following line to it: `export PATH="$PATH:/path/to/repo"`
+```
+export PATH="$PATH:/usr/local/bin/bashTools"
+. /usr/local/bin/bashTools/sources
+```
 
 <br/>
 
