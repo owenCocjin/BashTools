@@ -9,9 +9,6 @@
 
 #Change p's value to the bashTools directory
 p="/usr/local/bin"
-. $p/bashTools/cl
-. $p/bashTools/fillSpaces
-. $p/bashTools/n
-. $p/bashTools/resetWifi
-. $p/bashTools/stickynotes
-. $p/bashTools/wttr
+for tool in $(ls ${p}/bashTools/Tools); do
+	. ${p}/bashTools/Tools/${tool}
+done
