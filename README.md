@@ -2,7 +2,7 @@
 
 > A compilation of various Bash scripts I've created on the fly to help me deal with life on a terminal.
 
-<br/>
+***
 
 ## Installation:
 
@@ -17,14 +17,14 @@ ln -s $PWD/bashTools /usr/local/bin/
 echo -e '\nexport PATH="$PATH:/usr/local/bin/bashTools"\n. /usr/local/bin/bashTools/sources\n' >> ~/.bashrc
 ```
 
-Or you could manually add the lines:
+- Or you could manually add the lines:
 
 ```
 export PATH="$PATH:/usr/local/bin/bashTools"
 . /usr/local/bin/bashTools/sources
 ```
 
-Finally, run `source ~/.bashrc` to commit changes!
+- Finally, run `source ~/.bashrc` to commit changes!
 
 > Note: If bashTools isn't installed in `/usr/local/bin` you need to go into `sources` and change 'p'
 
