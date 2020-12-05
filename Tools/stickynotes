@@ -1,0 +1,48 @@
+#!/bin/bash
+## Author:	Owen Cocjin
+## Version:	1.0
+## Date:	05/03/20
+## Title:	stickynotes
+## Description: Create & manage stickynotes
+## Notes:
+
+stickynotes(){
+  note=$( echo -n "${@:2}" )
+  if [[ $1 == 'add' ]]; then
+    touch ~/.stickynotes/"$note"
+  elif [[ $1 == 'del' ]]; then
+    rm ~/.stickynotes/"$note"
+  elif [[ $1 == 'arch' ]]; then
+    mv ~/.stickynotes/"$note" ~/.stickynotes/".${note}"
+  elif [[ $1 == 'all' ]]; then
+		IFS=$'\n'
+    echo -e "\e[33m"
+		for i in $(ls -A ~/.stickynotes); do
+			echo "- $i"
+		done
+    echo -e "\e[0m"
+  elif [[ $1 == 'archived' ]]; then
+		IFS=$'\n'
+    echo -e "\e[33m"
+		for i in $(ls -A ~/.stickynotes/ | egrep '^\.'); do
+			echo "- $i"
+		done
+    echo -e "\e[0m"
+
+  elif [[ $1 == 'help' ]] || [[ $1 == '-h' ]]; then
+    echo -e 'stickynotes <arg>:
+  -h, help\t\tPrints this page
+    , add <New note>\tAdds a sticky note
+    , del <Old note>\tRemoves the old stickynote
+    , arch <Old note>\tArchive old note
+    , all\t\tList all notes
+    , archived\t\tList archived notes'
+  else
+		IFS=$'\n'
+    echo -e "\e[33m"
+		for i in $(ls ~/.stickynotes); do
+			echo "- $i"
+		done
+    echo -e "\e[0m"
+  fi
+}
