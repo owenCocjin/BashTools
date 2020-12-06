@@ -10,7 +10,7 @@ Preferred:
 - Clone repo and add `bashTools` to PATH
 > I recommend creating a symbolic link in a directory that already exists in path (*/usr/local/bin/* for this example). You can do this while in the cloned repo with the command:
 ```
-ln -s $PWD/bashTools /usr/local/bin/
+ln -s $PWD/Tools /usr/local/bin/bashTools
 ```
 > You must add 2 lines to your .bashrc. The following command will do it for you! The following assumes you put *bashTools* in `/usr/local/bin/`:
 ```
