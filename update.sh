@@ -1,11 +1,12 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.0
+## Version:	1.1
 ## Date:    06/12/20
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget' program
+##    - Added source message
 
 #Change p to bashTools directory if required
 p="/usr/local/bin"
@@ -45,5 +46,6 @@ for f in $(ls ${btd}); do
 	((++counter))
 done
 
-#Source bashrc to implement updated files
-. ~/.bashrc
+#Can't source bashrc from script
+echo "Done! finally, source bashrc to complete update!"
+echo -e '\n. ~/.bashrc\n'
