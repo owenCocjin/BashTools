@@ -24,7 +24,6 @@ oldVersions=( )  #Shouldn't have a need to save names as order of tools shouldn'
 for f in $(ls ${btd}); do
 	oldVersion+=( "$(head -n 3 "${btd}/${f}" | tail -n 1)" )
 done
-echo "${oldVersion:12}"
 
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${btd}); do
