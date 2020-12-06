@@ -14,14 +14,14 @@ ln -s $PWD/Tools /usr/local/bin/bashTools
 ```
 > You must add 2 lines to your .bashrc. The following command will do it for you! The following assumes you put *bashTools* in `/usr/local/bin/`:
 ```
-echo -e '\nexport PATH="$PATH:/usr/local/bin/bashTools"\n. /usr/local/bin/bashTools/sources\n' >> ~/.bashrc
+echo -e '\nexport PATH="$PATH:/usr/local/bin/bashTools"\n. /usr/local/bin/bashTools/.sources\n' >> ~/.bashrc
 ```
 
 - Or you could manually add the lines:
 
 ```
 export PATH="$PATH:/usr/local/bin/bashTools"
-. /usr/local/bin/bashTools/sources
+. /usr/local/bin/bashTools/.sources
 ```
 
 - Finally, run `source ~/.bashrc` to commit changes!
