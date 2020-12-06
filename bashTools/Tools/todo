@@ -1,9 +1,0 @@
-#!/bin/bash
-todo(){
-	if [[ -f 'to.do' ]]; then
-		echo -ne "\e[2J\e[H"
-		cat to.do
-	else
-		echo 'Nothing to do!'
-	fi
-}
