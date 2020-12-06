@@ -19,11 +19,13 @@ ln -s $PWD/Tools /usr/local/bin/bashTools
 echo -e '\nexport PATH="$PATH:/usr/local/bin/bashTools"\n. /usr/local/bin/bashTools/.sources\n' >> ~/.bashrc
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp;Or you could manually add the lines:
+&nbsp;&nbsp;Or you could manually add the lines:
 ```
 export PATH="$PATH:/usr/local/bin/bashTools"
 . /usr/local/bin/bashTools/.sources
 ```
+
+<br/>
 
 **&bull;** Finally, source your bashrc file:
 ```
