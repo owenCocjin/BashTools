@@ -9,6 +9,6 @@
 
 #Change p's value to the bashTools directory
 p="/usr/local/bin"
-for tool in $(ls ${p}/bashTools/Tools); do
-	. ${p}/bashTools/Tools/${tool}
+for tool in $(ls ${p}/bashTools/); do
+	. ${p}/bashTools/${tool}
 done
