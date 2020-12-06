@@ -1,4 +1,11 @@
 #!/bin/bash
+## Author:	Owen Cocjin
+## Version:	1.0
+## Date:	06/12/20
+## Title:	todo
+## Description: Reads a todo list in current directory
+## Notes:
+
 todo(){
 	if [[ -f 'to.do' ]]; then
 		echo -ne "\e[2J\e[H"
