@@ -1,12 +1,17 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.1
-## Date:	05/12/20
+## Version:	1.2
+## Date:	06/12/20
 ## Title:	cl
 ## Description: List directories after moving into them
 ## Notes:
-##    - Fixed issue with cd thinking files with spaces are multiple files
+##    - Fixed issue where cl doesn't go to home if no arguments were passed
 
 cl(){
-	cd "$*" && ls --color=yes "$PWD"
+	if [[ -z "$*" ]]; then
+		cd ~
+	else
+		cd "$*"
+	fi
+	ls --color=yes "$PWD"
 }
