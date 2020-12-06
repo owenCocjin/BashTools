@@ -36,6 +36,22 @@ source ~/.bashrc
 
 <br/>
 
+## Updates:
+
+There are 2 update options:
+
+1. Run the `update.sh` script provided with the repo.
+> !!! MAKE SURE THE PATHS IN THE `update.sh` ARE CORRECT !!!
+
+2. Delete the entire cloned repo and reinstall:
+```
+#Replace the variable with the path to bashTools. Default assumes you're in BashTools' parent directory
+rm -rf ./bashTools
+sudo git clone https://github.com/owenCocjin/bashTools.git
+```
+
+<br/>
+
 ## Usage:
 
 After installing, you can run any of the following as commands:
