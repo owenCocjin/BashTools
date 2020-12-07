@@ -1,11 +1,12 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.2
+## Version:	1.3
 ## Date:	06/12/20
 ## Title:	cl
 ## Description: List directories after moving into them
 ## Notes:
 ##    - Fixed issue where cl doesn't go to home if no arguments were passed
+##    - Fixed ls running even if bad arg passed
 
 cl(){
 	if [[ -z "$*" ]]; then
@@ -13,5 +14,5 @@ cl(){
 	else
 		cd "$*"
 	fi
-	ls --color=yes "$PWD"
+	(($? == 0)) && ls --color=yes "$PWD"
 }
