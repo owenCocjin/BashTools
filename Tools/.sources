@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.2
+## Version: 1.3
 ## Date:    07/12/20
 ## Title:   sources
 ## Description: Sources all functions
@@ -8,6 +8,6 @@
 ##	- Use BASHTOOLS_PATH env var
 
 #Change p's value to the bashTools directory
-for tool in $(ls ${BASHTOOLS_PATH}/bashtools/); do
-	. ${BASHTOOLS_PATH}/bashtools/${tool}
+for tool in $(ls ${BASHTOOLS_PATH}); do
+	. ${BASHTOOLS_PATH}/${tool}
 done
