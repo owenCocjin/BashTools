@@ -1,14 +1,13 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.1
-## Date:    05/03/20
+## Version: 1.2
+## Date:    07/12/20
 ## Title:   sources
 ## Description: Sources all functions
 ## Notes:
-##	- Fix relative path
+##	- Use BASHTOOLS_PATH env var
 
 #Change p's value to the bashTools directory
-p="/usr/local/bin"
-for tool in $(ls ${p}/bashTools/); do
-	. ${p}/bashTools/${tool}
+for tool in $(ls ${BASHTOOLS_PATH}/bashtools/); do
+	. ${BASHTOOLS_PATH}/bashtools/${tool}
 done

@@ -6,33 +6,7 @@
 
 ## Installation:
 
-**&bull;** Clone repo and add `bashTools` to PATH
-> I recommend creating a symbolic link in a directory that already exists in path (*/usr/local/bin/* for this example). You can do this while in the cloned repo with the command:
-```
-ln -s $PWD/Tools /usr/local/bin/bashTools
-```
-
-<br/>
-
-**&bull;** You must add 2 lines to your .bashrc. The following command will do it for you! The following assumes you put *bashTools* in `/usr/local/bin/`:
-```
-echo -e '\nexport PATH="$PATH:/usr/local/bin/bashTools"\n. /usr/local/bin/bashTools/.sources\n' >> ~/.bashrc
-```
-
-&nbsp;&nbsp;Or you could manually add the lines:
-```
-export PATH="$PATH:/usr/local/bin/bashTools"
-. /usr/local/bin/bashTools/.sources
-```
-
-<br/>
-
-**&bull;** Finally, source your bashrc file:
-```
-source ~/.bashrc
-```
-
-*Note: If bashTools isn't installed in `/usr/local/bin` you need to go into `sources` and change 'p'*
+Run the `install.sh` script as root **WHILE IN REPO DIRECTORY!** Root is really only required if you don't change the default path (/usr/local/bin). To set a home path, edit the `install.sh` script and change `temp_path` to whatever you want the symlink to run through.
 
 <br/>
 
@@ -47,9 +21,9 @@ There are 2 update options:
 
 - Delete the entire cloned repo and reinstall:
 ```
-#Replace the variable with the path to bashTools. Default assumes you're in BashTools' parent directory
-rm -rf ./bashTools
-sudo git clone https://github.com/owenCocjin/bashTools.git
+#Replace the variable with the path to BashTools. Default assumes you're in BashTools' parent directory
+rm -rf ./BashTools
+sudo git clone https://github.com/owenCocjin/BashTools.git
 ```
 
 <br/>
@@ -58,8 +32,24 @@ sudo git clone https://github.com/owenCocjin/bashTools.git
 
 After installing, you can run any of the following as commands:
 * cl
+	* cd then ls into a directory
 * fillSpaces
+	* Replaces spaces in filenames
 * n
+	* Send & dissociate a program from a terminal
 * resetWifi
+	* Restart a wifi card
 * stickynotes
+	* Create and manage stickynotes
 * wttr
+	* Get weather info
+
+<br/>
+
+## Uninstall:
+
+To uninstall you must:
+
+- Manually change the edits made by the install script in your .bashrc file.
+
+- Delete the symlink in the bashtools path. Default will be `/usr/local/bin/bashtools`.
