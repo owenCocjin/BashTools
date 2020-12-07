@@ -8,7 +8,7 @@
 ##    - Requires 'wget' program
 ##    - Imcorporated env var 'BASHTOOLS_PATH'
 
-echo -e "This script will be modifying files in:\n\t${BASHTOOLS_PATH}\n\t${BASHTOOLS_PATH}/BashTools\nIf this is not the correct directory change env var 'BASHTOOLS_PATH'."
+echo -e "This script will be modifying files in:\n\t${BASHTOOLS_PATH}\nIf this is not the correct directory change env var 'BASHTOOLS_PATH'."
 echo -en "\nIs this the correct directory (y/n)? "
 read menu
 if [[ "$menu" != "y" ]] && [[ "$menu" != "Y" ]]; then
