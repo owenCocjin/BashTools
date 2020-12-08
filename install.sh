@@ -24,7 +24,7 @@ temp_path="${parentPath}/bashtools"
 echo "[|X] Deciding home for bashtools... ${temp_path}"
 
 #Sym link Tools to path if one doesn't already exist
-if [[ ! -f ${temp_path} ]]; then
+if [[ ! -h ${temp_path} ]]; then
 	ln -s ${PWD}/Tools ${temp_path}
 	echo -e "[|X] Creating symlink from\n\t-> ${temp_path} to ${PWD}/Tools"
 else
