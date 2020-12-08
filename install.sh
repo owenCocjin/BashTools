@@ -28,7 +28,7 @@ if [[ ! -h ${temp_path} ]]; then
 	ln -s ${PWD}/Tools ${temp_path}
 	echo -e "[|X] Creating symlink from\n\t-> ${temp_path} to ${PWD}/Tools"
 else
-	"[|X] It looks like the symlink exists! If you have permission to ${temp_path} you can delete this repo as it's probably already setup somewhere..."
+	echo "[|X] It looks like the symlink exists! If you have permission to ${temp_path} you can delete this repo as it's probably already setup somewhere..."
 fi
 
 #Add lines to .bashrc
