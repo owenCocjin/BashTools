@@ -6,7 +6,7 @@
 
 ## Installation:
 
-Run the `install.sh` script as root **WHILE IN REPO DIRECTORY!** Root is really only required if you don't change the default path (/usr/local/bin). To set a home path, edit the `install.sh` script and change `temp_path` to whatever you want the symlink to run through.
+Run the `install.sh` script as root **WHILE IN REPO DIRECTORY!** Root is really only required if you don't change the default path (/usr/local/bin). To set a home path, edit the `install.sh` script and change `temp_path` to whatever you want the symlink to run through. If you run as root user (not just sudo), make sure the repo itself is somewhere accessible by all accounts!
 
 <br/>
 
