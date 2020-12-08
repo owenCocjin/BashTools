@@ -16,8 +16,7 @@ if [[ $(id -u) != '0' ]]; then
 else
 	home_path=$([[ -z ${SUDO_USER} ]] && echo "/root" || echo "/home/${SUDO_USER}")
 fi
-echo ${home_path}
-exit 0
+
 #Create temp var for bashtools home directory
 ### CHANGE ME IF YOU WANT ###
 temp_path='/usr/local/bin/bashtools'
