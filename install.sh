@@ -7,16 +7,17 @@
 ## Notes:
 ##    - Must run as root
 ##    - Changed bashtools path env var
-##    - Fixed issue with home path being incorrect when run by root 
+##    - Fixed issue with home path being incorrect when run by root
 
 #Exit if not running as root
 if [[ $(id -u) != '0' ]]; then
 	echo "[|X] Run as root (would probably have failed otherwise)!"
 	exit 1
+else
 	home_path=$([[ -z ${SUDO_USER} ]] && echo "/root" || echo "/home/${SUDO_USER}")
 fi
-
-
+echo ${home_path}
+exit 0
 #Create temp var for bashtools home directory
 ### CHANGE ME IF YOU WANT ###
 temp_path='/usr/local/bin/bashtools'
