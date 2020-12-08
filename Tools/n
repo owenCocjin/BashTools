@@ -1,8 +1,8 @@
 #!/bin/bash
-## Author:	Owen Cocjin
-## Version:	1.0
-## Date:	05/03/20
-## Title:	n
+## Author:  Owen Cocjin
+## Version: 1.0
+## Date:    05/03/20
+## Title:   n
 ## Description: Send a command to background, silence it, disown it
 ## Notes:
 n(){
