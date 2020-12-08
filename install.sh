@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.3
+## Version:	1.4
 ## Date:    07/12/20
 ## Title:   install.sh
 ## Description: Installs BashTools
