@@ -31,6 +31,7 @@ In order to update the update script itself, you must manually run the below com
 rm ./update.sh
 wget -O update.sh https://raw.githubusercontent.com/owenCocjin/BashTools/master/update.sh
 chmod +x ./update.sh
+
 ```
 
 <br/>
