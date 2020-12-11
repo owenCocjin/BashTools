@@ -26,6 +26,13 @@ rm -rf ./BashTools
 sudo git clone https://github.com/owenCocjin/BashTools.git
 ```
 
+In order to update the update script itself, you must manually run the below command __IN THE REPO DIRECTORY__:
+```
+rm ./update.sh
+wget -O update.sh https://raw.githubusercontent.com/owenCocjin/BashTools/master/update.sh
+chmod +x ./update.sh
+```
+
 <br/>
 
 ## Usage:
