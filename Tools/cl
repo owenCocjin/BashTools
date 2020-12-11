@@ -9,7 +9,7 @@
 ##    - Added 'cla' command
 ##    - Re-arranged functions
 
-_base_cl(){
+.base_cl(){
 	#cd into directory
 	if [[ -z "$*" ]]; then
 		cd ~
@@ -26,7 +26,7 @@ cl(){
 cll(){
 	#Like 'cl', but lists long format
 	_base_cl() "$*"
-	(($? == 0)) && ls -l --color=yes "$PWD"
+	(($? == 0)) && ls -lh --color=yes "$PWD"
 }
 
 cla(){
