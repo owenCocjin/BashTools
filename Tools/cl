@@ -1,11 +1,11 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	2.5
+## Version:	2.6
 ## Date:	10/12/20
 ## Title:	cl
 ## Description: List directories after moving into them
 ## Notes:
-##    - Removed previous command success check
+##    - Prevent 'ls' on failed 'cd'
 
 _base_cl(){
 	#cd into directory
@@ -18,17 +18,17 @@ _base_cl(){
 
 cl(){
 	_base_cl "$*"
-	ls --color=yes "$PWD"
+	(($? == 0)) && ls --color=yes "$PWD"
 }
 
 cll(){
 	#Like 'cl', but lists long format
 	_base_cl "$*"
-	ls -lh --color=yes "$PWD"
+	(($? == 0)) && ls -lh --color=yes "$PWD"
 }
 
 cla(){
 	#Like 'cl', but lists all
 	_base_cl "$*"
-	ls -A --color=yes "$PWD"
+	(($? == 0)) && ls -A --color=yes "$PWD"
 }
