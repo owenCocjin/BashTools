@@ -1,27 +1,36 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	2.0
+## Version:	2.2
 ## Date:	10/12/20
 ## Title:	cl
 ## Description: List directories after moving into them
 ## Notes:
 ##    - Added 'cll' command
+##    - Added 'cla' command
+##    - Re-arranged functions
 
-cl(){
+_base_cl(){
+	#cd into directory
 	if [[ -z "$*" ]]; then
 		cd ~
 	else
 		cd "$*"
 	fi
+}
+
+cl(){
+	_base_cl() "$*"
 	(($? == 0)) && ls --color=yes "$PWD"
 }
 
 cll(){
 	#Like 'cl', but lists long format
-	if [[ -z "$*" ]]; then
-		cd ~
-	else
-		cd "$*"
-	fi
+	_base_cl() "$*"
 	(($? == 0)) && ls -l --color=yes "$PWD"
+}
+
+cla(){
+	#Like 'cl', but lists all
+	_base_cl() "$*"
+	(($? == 0)) && ls -a --color=yes "$PWD"
 }
