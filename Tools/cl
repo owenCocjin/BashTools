@@ -1,15 +1,13 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	2.2
+## Version:	2.3
 ## Date:	10/12/20
 ## Title:	cl
 ## Description: List directories after moving into them
 ## Notes:
-##    - Added 'cll' command
-##    - Added 'cla' command
-##    - Re-arranged functions
+##    - Removed '()' in calling _base_cl
 
-.base_cl(){
+_base_cl(){
 	#cd into directory
 	if [[ -z "$*" ]]; then
 		cd ~
@@ -19,18 +17,18 @@
 }
 
 cl(){
-	_base_cl() "$*"
+	_base_cl "$*"
 	(($? == 0)) && ls --color=yes "$PWD"
 }
 
 cll(){
 	#Like 'cl', but lists long format
-	_base_cl() "$*"
+	_base_cl "$*"
 	(($? == 0)) && ls -lh --color=yes "$PWD"
 }
 
 cla(){
 	#Like 'cl', but lists all
-	_base_cl() "$*"
+	_base_cl "$*"
 	(($? == 0)) && ls -a --color=yes "$PWD"
 }
