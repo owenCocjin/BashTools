@@ -7,11 +7,11 @@
 ## Notes:
 ##    - Requires 'wget'
 ##    - Cleaned up menu if
-menu_regex='^[Yy]es$|^[Yy]$|\s'
+menu_regex='^[Yy]es$|^[Yy]$'
 echo -e "This script will be modifying files in:\n\t${BASHTOOLS_PATH}\nIf this is not the correct directory change env var 'BASHTOOLS_PATH'."
 echo -en "\nIs this the correct directory (y/n)? "
 read menu
-if [[ ! ${menu} =~ ${menu_regex} ]]; then
+if [[ ! ${menu} =~ ${menu_regex} ]] && [[ ${menu} != '' ]]; then
 	echo "Please change the env var 'BASHTOOLS_PATH'!"
 	exit 0
 fi
