@@ -34,7 +34,7 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 done
 
 #List updated versions
-echo "********************************"
+echo -en "\n********************************"
 counter=0
 for f in $(ls ${BASHTOOLS_PATH}); do
 	newVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
