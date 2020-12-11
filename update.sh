@@ -1,13 +1,13 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.3
+## Version:	1.4
 ## Date:    06/12/20
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
-##    - Fixed typos and spacing
-
+##    - Cleaned up menu if
+menu_regex="[Yy]|\n"
 echo -e "This script will be modifying files in:\n\t${BASHTOOLS_PATH}\nIf this is not the correct directory change env var 'BASHTOOLS_PATH'."
 echo -en "\nIs this the correct directory (y/n)? "
 read menu
