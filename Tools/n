@@ -1,25 +1,28 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.0
-## Date:    05/03/20
+## Version: 1.1
+## Date:    13/12/20
 ## Title:   n
 ## Description: Send a command to background, silence it, disown it
 ## Notes:
+##    - Fixed permissions issue with /tmp/nList
 n(){
+	temp_list=/tmp/nList
+	if [[ ! -f ${temp_list} ]]; then touch ${temp_list}; chmod 666 ${temp_list}; fi
   # Process command
   if [[ $1 == '-l' ]]; then
 	IFS=$'\n'  # Set internal field separator
 	echo -e "\e[4mDATE (dd/mm/yy)\t\tPID\tCOMMAND\e[0m\n"
-	if [[ ! -f /tmp/nList ]]; then return; fi;
+	if [[ ! -f ${temp_list} ]]; then return; fi;
 
 	# If a n'd process is actually running, print it
-	for i in $(cat /tmp/nList); do
+	for i in $(cat ${temp_list}); do
 		if [[ $(ps aux | awk '{print $2}' | egrep $(cut -f2 <<< $i) | wc -l ) == '1' ]]; then
 			echo "$i"
 		fi
 	done
   elif [[ $1 == '-c' ]]; then
-    rm /tmp/nList
+    rm ${temp_list}
   elif [[ $1 == '-k' ]]; then
     sudo kill $2
   elif [[ $1 == '-s' ]]; then
@@ -34,6 +37,6 @@ n(){
   else
     echo "Silencing & disassociating $1..."
     $@ &>/dev/null & disown
-    echo -e "$(date  +'%d/%m/%y - %H:%M:%S')\t$!\t$@" >> /tmp/nList
+    echo -e "$(date  +'%d/%m/%y - %H:%M:%S')\t$!\t$@" >> ${temp_list}
   fi
 }
