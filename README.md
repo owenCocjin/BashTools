@@ -22,7 +22,7 @@ There are 2 update options:
 - Delete the entire cloned repo and re-clone. The way the tools are installed means as long as you clone into the same directory as the first time everything should be fine:
 ```
 rm -rf ./BashTools
-sudo git clone https://github.com/owenCocjin/BashTools.git
+git clone https://github.com/owenCocjin/BashTools.git
 ```
 
 In order to update the `update.sh` script itself, you must manually run the below command __IN THE REPO DIRECTORY__:
