@@ -9,7 +9,7 @@
 ##    - Added -v to grab tool versions
 if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
-	for f in $(ls ${BASHTOOLS_PATH}); do
+	for f in $(ls --hide="SubFunctions" ${BASHTOOLS_PATH}); do
 		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 		echo -e "\n${f}:"
 		echo -en "\tVersion ${curVersion:12}\n"
