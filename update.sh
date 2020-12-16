@@ -1,12 +1,13 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5.1
+## Version:	1.5.2
 ## Date:    15/12/20
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
 ##    - Added -v to grab tool versions
+##    - Added README.md to update process
 if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
 	curVersion=$(head -n 3 "./update.sh" | tail -n 1)
@@ -44,6 +45,13 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 		echo "[V]"
 	fi
 done
+#Update README.md
+wget -O "./README.md" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/README.md" &>/dev/null
+if [[ $? != 0 ]]; then
+	echo "[X]"
+else
+	echo "[V]"
+fi
 
 #List updated versions
 echo -en "\n********************************"
