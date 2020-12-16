@@ -1,12 +1,22 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.4
-## Date:    06/12/20
+## Version:	1.5
+## Date:    15/12/20
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
-##    - Cleaned up menu if
+##    - Added -v to grab tool versions
+if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
+	echo -en "\n********************************"
+	for f in $(ls ${BASHTOOLS_PATH}); do
+		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
+		echo -e "\n${f}:"
+		echo -en "\tVersion ${curVersion:12}\n"
+	done
+	echo "********************************"
+	exit 0
+fi
 menu_regex='^[Yy]es$|^[Yy]$'
 echo -e "This script will be modifying files in:\n\t${BASHTOOLS_PATH}\nIf this is not the correct directory change env var 'BASHTOOLS_PATH'."
 echo -en "\nIs this the correct directory (y/n)? "
