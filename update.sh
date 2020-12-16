@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5
+## Version:	1.5.1
 ## Date:    15/12/20
 ## Title:   update.sh
 ## Description: Updates all bashTools
@@ -9,7 +9,8 @@
 ##    - Added -v to grab tool versions
 if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
-	echo -e "\nupdate.sh\n\tVersion $(head -n 3 "./update.sh" | tail -n 1)"
+	curVersion=$(head -n 3 "./update.sh" | tail -n 1)
+	echo -e "\nupdate.sh\n\tVersion ${curVersion:12}\n"
 	for f in $(ls ${BASHTOOLS_PATH}); do
 		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 		echo -e "\n${f}:"
