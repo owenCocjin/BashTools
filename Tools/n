@@ -1,11 +1,11 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.2
+## Version: 1.3
 ## Date:    13/12/20
 ## Title:   n
 ## Description: Send a command to background, silence it, disown it
 ## Notes:
-##    - offloaded help arg
+##    - Added new SubFunctions path
 n(){
 	temp_list=/tmp/nList
 	if [[ ! -f ${temp_list} ]]; then touch ${temp_list}; chmod 666 ${temp_list}; fi
@@ -28,7 +28,7 @@ n(){
   elif [[ $1 == '-s' ]]; then
     ps aux | grep $2 | grep -v 'grep'
   elif [[ $1 == '-h' ]]; then
-    ${BASHTOOLS_PATH}/SubFunctions/_help.n
+    ${BASHTOOLS_PATH}/.SubFunctions/_help.n
   else
     echo "Silencing & disassociating $1..."
     $@ &>/dev/null & disown
