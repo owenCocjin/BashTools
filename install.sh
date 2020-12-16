@@ -1,14 +1,17 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
 ## Version:	1.4.1
-## Date:    07/12/20
+## Date:    16/12/20
 ## Title:   install.sh
 ## Description: Installs BashTools
 ## Notes:
 ##    - Must run as root
 ##    - Changed comments
-### Edit this path to wherever BashTools should install! ###
-parentPath='/usr/local/bin'
+### Edit the 'parentPath' var to wherever BashTools should install! ###
+###############################
+parentPath='/usr/local/bin' ###
+###############################
+
 #Exit if not running as root
 if [[ $(id -u) != '0' ]]; then
 	echo "[|X] Run as root (would probably have failed otherwise)!"

@@ -19,9 +19,8 @@ There are 2 update options:
 
 <br/>
 
-- Delete the entire cloned repo and reinstall:
+- Delete the entire cloned repo and re-clone. The way the tools are installed means as long as you clone into the same directory as the first time everything should be fine:
 ```
-#Replace the variable with the path to BashTools. Default assumes you're in BashTools' parent directory
 rm -rf ./BashTools
 sudo git clone https://github.com/owenCocjin/BashTools.git
 ```
@@ -58,6 +57,8 @@ After installing, you can run any of the following as commands:
 
 To uninstall you must:
 
-- Manually change the edits made by the install script in your .bashrc file.
+- Manually change the edits made by the install script in your .bashrc file. See install instructions for specific lines.
 
 - Delete the symlink in the bashtools path. Default will be `/usr/local/bin/bashtools`.
+
+- Delete the BashTools cloned repo.
