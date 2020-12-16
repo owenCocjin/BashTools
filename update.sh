@@ -36,7 +36,7 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 done
 
 #Download all raw files from github & overwrite old tools
-for f in $(ls ${BASHTOOLS_PATH}; ls ./README.md); do
+for f in $(ls ${BASHTOOLS_PATH}; ls README.md); do
 	echo -n "Downloading ${f}... "
 	wget -O "${BASHTOOLS_PATH}/${f}" "https://raw.githubusercontent.com/owenCocjin/bashTools/master/Tools/${f}" &>/dev/null
 	if [[ $? != 0 ]]; then
