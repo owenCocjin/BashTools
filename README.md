@@ -33,22 +33,24 @@ chmod +x ./update.sh
 
 ```
 
+> In the case of a major update (normally just goes out of the scope of the Tools) manually deleting the repo is the best/only option.
+
 <br/>
 
 ## Usage:
 
 After installing, you can run any of the following as commands:
-* cl
+* cl [v2.6]
 	* cd then ls into a directory
-* fillSpaces
+* fillSpaces [v1.0]
 	* Replaces spaces in filenames
-* n
+* n [v1.3]
 	* Send & dissociate a program from a terminal
-* resetWifi
+* resetWifi [v1.0]
 	* Restart a wifi card
-* stickynotes
+* stickynotes [v1.0]
 	* Create and manage stickynotes
-* wttr
+* wttr [v1.0]
 	* Get weather info
 
 <br/>
