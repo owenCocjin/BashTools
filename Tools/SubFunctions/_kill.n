@@ -5,3 +5,4 @@
 ## Title:   _kill
 ## Description: Kill specified PIDs
 ## Notes:
+sudo kill $2
