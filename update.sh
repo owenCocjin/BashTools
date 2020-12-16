@@ -36,7 +36,7 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 done
 
 #Download all raw files from github & overwrite old tools
-for f in $(ls ${BASHTOOLS_PATH}); do
+for f in $(ls ${BASHTOOLS_PATH}; ls ./README.md); do
 	echo -n "Downloading ${f}... "
 	wget -O "${BASHTOOLS_PATH}/${f}" "https://raw.githubusercontent.com/owenCocjin/bashTools/master/Tools/${f}" &>/dev/null
 	if [[ $? != 0 ]]; then
@@ -45,13 +45,6 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 		echo "[V]"
 	fi
 done
-#Update README.md
-wget -O "./README.md" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/README.md" &>/dev/null
-if [[ $? != 0 ]]; then
-	echo "[X]"
-else
-	echo "[V]"
-fi
 
 #List updated versions
 echo -en "\n********************************"
