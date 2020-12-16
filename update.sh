@@ -9,6 +9,7 @@
 ##    - Added -v to grab tool versions
 if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
+	echo -e "\nupdate.sh\n\tVersion $(head -n 3 "./update.sh" | tail -n 1)"
 	for f in $(ls ${BASHTOOLS_PATH}); do
 		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 		echo -e "\n${f}:"
