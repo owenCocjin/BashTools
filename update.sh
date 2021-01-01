@@ -15,7 +15,12 @@
 #----------------#
 dwnldr(){
 	echo -n "Downloading ${1}... "
-	wget -O "${BASHTOOLS_PATH}/${1}" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${1}" &>/dev/null
+	if [[ -z $2 ]]; then
+		namepath="${BASHTOOLS_PATH}/${1}"
+	else
+		namespath="${1}"
+	fi
+	wget -O "${1}" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${1}" &>/dev/null
 	if [[ $? != 0 ]]; then
 		echo "[X]"
 	else
@@ -58,7 +63,7 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 	dwnldr $f
 done
 #Download README
-dwnldr "README.md"
+dwnldr "README.md" ""
 
 #List updated versions
 echo -en "\n********************************"
