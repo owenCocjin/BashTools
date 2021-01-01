@@ -56,7 +56,6 @@ done
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${BASHTOOLS_PATH}); do
 	dwnldr $f
-	fi
 done
 #Download README
 dwnldr "README.md"
@@ -74,4 +73,4 @@ echo "********************************"
 
 #Can't source bashrc from script
 echo -e "\nDone! Finally, source bashrc to complete update!"
-echo -e '\n. ~/.bashrc\n'
+echo -e "\n. ~/.bashrc\n"
