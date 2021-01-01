@@ -13,7 +13,7 @@
 #----------------#
 #    FUNCTION    #
 #----------------#
-function dwnldr(){
+dwnldr(){
 	echo -n "Downloading ${1}... "
 	wget -O "${BASHTOOLS_PATH}/${1}" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${1}" &>/dev/null
 	if [[ $? != 0 ]]; then
