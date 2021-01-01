@@ -1,18 +1,36 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5.2
-## Date:    15/12/20
+## Version:	1.5.3
+## Date:    15/12/31
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
-##    - Added -v to grab tool versions
-##    - Added README.md to update process
+## Update:
+##    - Added a downloader function
+##    - Added README.md to version display
+
+#----------------#
+#    FUNCTION    #
+#----------------#
+function dwnldr(){
+	echo -n "Downloading ${1}... "
+	wget -O "${BASHTOOLS_PATH}/${1}" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${1}" &>/dev/null
+	if [[ $? != 0 ]]; then
+		echo "[X]"
+	else
+		echo "[V]"
+	fi
+}#function()
+
+#------------#
+#    MAIN    #
+#------------#
 if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
 	curVersion=$(head -n 3 "./update.sh" | tail -n 1)
 	echo -e "\nupdate.sh\n\tVersion ${curVersion:12}"
-	for f in $(ls ${BASHTOOLS_PATH}); do
+	for f in $(ls ${BASHTOOLS_PATH}; ls README.md); do
 		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 		echo -e "\n${f}:"
 		echo -en "\tVersion ${curVersion:12}\n"
@@ -36,15 +54,12 @@ for f in $(ls ${BASHTOOLS_PATH}); do
 done
 
 #Download all raw files from github & overwrite old tools
-for f in $(ls ${BASHTOOLS_PATH}; ls README.md); do
-	echo -n "Downloading ${f}... "
-	wget -O "${BASHTOOLS_PATH}/${f}" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${f}" &>/dev/null
-	if [[ $? != 0 ]]; then
-		echo "[X]"
-	else
-		echo "[V]"
+for f in $(ls ${BASHTOOLS_PATH}); do
+	dwnldr $f
 	fi
 done
+#Download README
+dwnldr "README.md"
 
 #List updated versions
 echo -en "\n********************************"
