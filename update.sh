@@ -13,15 +13,7 @@
 #----------------#
 #    FUNCTION    #
 #----------------#
-dwnldr(){
-	echo -n "Downloading ${1}... "
-	wget -O "${BASHTOOLS_PATH}/${1}" "https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${1}" &>/dev/null
-	if [[ $? != 0 ]]; then
-		echo "[X]"
-	else
-		echo "[V]"
-	fi
-}#function()
+
 
 #------------#
 #    MAIN    #
@@ -55,11 +47,11 @@ done
 
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${BASHTOOLS_PATH}); do
-	echo "DOWNLOADING ${f}"
+	echo "FUCK"
 	#dwnldr $f
 done
 #Download README
-echo "DOWNLOADING README.md"
+echo "SHIT!"
 #dwnldr "README.md"
 
 #List updated versions
