@@ -8,7 +8,7 @@
 ##    - Requires 'wget'
 ## Update:
 ##    - Added a downloader function
-##    - Added README.md to version display
+##    - Fied issues with README.md
 
 #----------------#
 #    FUNCTION    #
@@ -30,7 +30,7 @@ if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
 	curVersion=$(head -n 3 "./update.sh" | tail -n 1)
 	echo -e "\nupdate.sh\n\tVersion ${curVersion:12}"
-	for f in $(ls ${BASHTOOLS_PATH}; ls README.md); do
+	for f in $(ls ${BASHTOOLS_PATH}; ls "README.md"); do
 		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 		echo -e "\n${f}:"
 		echo -en "\tVersion ${curVersion:12}\n"
@@ -56,6 +56,7 @@ done
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${BASHTOOLS_PATH}); do
 	dwnldr $f
+	fi
 done
 #Download README
 dwnldr "README.md"
