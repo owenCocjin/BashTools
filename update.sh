@@ -6,6 +6,7 @@
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
+##    - Updated README.md, but won't show a version no.
 ## Update:
 ##    - Added a downloader function
 ##    - Fied issues with README.md
@@ -37,7 +38,7 @@ if [[ ${1} = '-v' ]] || [[ ${1} = '--version' ]]; then
 	echo -en "\n********************************"
 	curVersion=$(head -n 3 "./update.sh" | tail -n 1)
 	echo -e "\nupdate.sh\n\tVersion ${curVersion:12}"
-	for f in $(ls ${BASHTOOLS_PATH}; ls "README.md"); do
+	for f in $(ls ${BASHTOOLS_PATH}); do
 		curVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 		echo -e "\n${f}:"
 		echo -en "\tVersion ${curVersion:12}\n"
