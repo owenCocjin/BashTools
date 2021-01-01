@@ -56,7 +56,6 @@ done
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${BASHTOOLS_PATH}); do
 	dwnldr $f
-	fi
 done
 #Download README
 dwnldr "README.md"
