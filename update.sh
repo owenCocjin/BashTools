@@ -55,10 +55,12 @@ done
 
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${BASHTOOLS_PATH}); do
-	dwnldr $f
+	echo "DOWNLOADING ${f}"
+	#dwnldr $f
 done
 #Download README
-dwnldr "README.md"
+echo "DOWNLOADING README.md"
+#dwnldr "README.md"
 
 #List updated versions
 echo -en "\n********************************"
