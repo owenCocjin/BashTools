@@ -1,0 +1,15 @@
+#!/bin/bash
+## Author:	Owen Cocjin
+## Version:	1.0
+## Date:    24/02/2020
+## Title:   webnotes
+## Description: Opens a notepad in firefox
+## Notes:
+
+webnotes(){
+	if [[ ! -z ${1} ]]; then
+		firefox "data:text/html,<html><head><title>${1}</title></head><body><style>*{contenteditable:'true';font-size:25px;}</style></body></html>"
+	else
+		echo "Enter a title!"
+	fi
+}
