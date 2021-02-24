@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5.5
+## Version:	1.5.6
 ## Date:    24/02/2021
 ## Title:   update.sh
 ## Description: Updates all bashTools
@@ -20,11 +20,10 @@ dwnldr(){
 		namepath="${BASHTOOLS_PATH}/${1}"
 		rawpath="https://raw.githubusercontent.com/owenCocjin/BashTools/master/Tools/${1}"
 	else
-		namespath="${1}"
+		namepath="${1}"
 		rawpath="https://raw.githubusercontent.com/owenCocjin/BashTools/master/${1}"
 	fi
-	echo $rawpath
-	wget -O "${namespath}" $rawpath
+	wget -O "${namepath}" $rawpath
 	if [[ $? != 0 ]]; then
 		echo "[X]"
 	else
