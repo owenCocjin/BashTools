@@ -23,7 +23,7 @@ dwnldr(){
 		namepath="${1}"
 		rawpath="https://raw.githubusercontent.com/owenCocjin/BashTools/master/${1}"
 	fi
-	wget -O "${namepath}" $rawpath
+	wget -O "${namepath}" $rawpath &>/dev/null
 	if [[ $? != 0 ]]; then
 		echo "[X]"
 	else
