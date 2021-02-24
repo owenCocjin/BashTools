@@ -1,15 +1,18 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.0
+## Version:	1.1
 ## Date:    24/02/2020
 ## Title:   webnotes
 ## Description: Opens a notepad in firefox
 ## Notes:
+## Update:
+##    - Uses current directory for title if none specified
 
 webnotes(){
 	if [[ ! -z ${1} ]]; then
-		firefox "data:text/html,<html><head><title>${1}</title></head><body><style>*{contenteditable:'true';font-size:25px;}</style></body></html>"
+		notestitle=${1}
 	else
-		echo "Enter a title!"
+		notestitle=$(pwd)
 	fi
+	firefox "data:text/html,<html><head><title>${notestitle}</title></head><body><style>*{contenteditable:'true';font-size:25px;}</style></body></html>"
 }
