@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5.3
+## Version:	1.5.4
 ## Date:    15/12/31
 ## Title:   update.sh
 ## Description: Updates all bashTools
@@ -8,8 +8,7 @@
 ##    - Requires 'wget'
 ##    - Updated README.md, but won't show a version no.
 ## Update:
-##    - Added a downloader function
-##    - Fied issues with README.md
+##    - fixed issue with updates saving to current directory (as opposed to $BASHTOOLS_PATH)
 
 #----------------#
 #    FUNCTION    #
@@ -23,7 +22,7 @@ dwnldr(){
 		namespath="${1}"
 		rawpath="https://raw.githubusercontent.com/owenCocjin/BashTools/master/${1}"
 	fi
-	wget -O "${1}" $rawpath &>/dev/null
+	wget -O "${BASHTOOLS_PATH}/${1}" $rawpath &>/dev/null
 	if [[ $? != 0 ]]; then
 		echo "[X]"
 	else
