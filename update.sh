@@ -1,14 +1,15 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5.4
-## Date:    15/12/31
+## Version:	1.5.5
+## Date:    24/02/2021
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
 ##    - Updated README.md, but won't show a version no.
 ## Update:
-##    - fixed issue with updates saving to current directory (as opposed to $BASHTOOLS_PATH)
+##    - Fixed issue with updates saving to current directory (as opposed to BASHTOOLS_PATH)
+##    - Fixed README.md issue saving to BASHTOOLS_PATH
 
 #----------------#
 #    FUNCTION    #
@@ -22,7 +23,7 @@ dwnldr(){
 		namespath="${1}"
 		rawpath="https://raw.githubusercontent.com/owenCocjin/BashTools/master/${1}"
 	fi
-	wget -O "${BASHTOOLS_PATH}/${1}" $rawpath &>/dev/null
+	wget -O "${namespath}" $rawpath &>/dev/null
 	if [[ $? != 0 ]]; then
 		echo "[X]"
 	else
