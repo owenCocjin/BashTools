@@ -60,8 +60,6 @@ oldVersions=( )  #Shouldn't have a need to save names as order of tools shouldn'
 for f in $(ls ${BASHTOOLS_PATH}); do
 	oldVersion+=( "$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)" )
 done
-#Add README.md to oldVersions
-oldVersion+=( "$(head -n 3 "README.md" | tail -n 1)" )
 
 #Download all raw files from github & overwrite old tools
 for f in $(ls ${BASHTOOLS_PATH}); do
@@ -73,7 +71,7 @@ dwnldr "README.md" 'x'
 #List updated versions
 echo -en "\n********************************"
 counter=0
-for f in $(ls ${BASHTOOLS_PATH}; ls README.md); do
+for f in $(ls ${BASHTOOLS_PATH}); do
 	newVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
 	echo -e "\n${f}:"
 	echo -en "\tVersion ${oldVersion[counter]:12} -> ${newVersion:12}\n"
