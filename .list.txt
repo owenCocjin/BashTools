@@ -1,0 +1,15 @@
+.SubFunctions/README.md
+.SubFunctions/_help.n
+.SubFunctions/_kill.n
+.SubFunctions/_list.n
+.sources
+cl
+monloop
+n
+webnotes
+fillSpaces
+mvd
+resetWifi
+stickynotes
+todo
+wttr
