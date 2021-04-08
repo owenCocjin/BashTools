@@ -7,9 +7,9 @@ cl
 monloop
 n
 webnotes
-fillSpaces
+fillspaces
 mvd
-resetWifi
+resetwifi
 stickynotes
 todo
 wttr
