@@ -70,9 +70,11 @@ for f in $(cat .list.txt | tail -n +2); do  #Ignore the first line. This is just
 	fi
 done
 #Download list from root
-[[ $(dwnldr ".list.txt" 'x') == '0' ]] && : || echo 'Failed to download list!' && exit 1
-
-
+dwnldr ".list.txt" 'x'
+if [[ $? != '0' ]]; then
+	echo 'Failed to download list!'
+	exit 1
+fi
 #Download all raw files from github & overwrite old tools
 for f in $(cat .list.txt); do
 	dwnldr $f
@@ -82,13 +84,14 @@ done
 dwnldr "README.md" 'x'
 
 #List updated versions
+IFS=$'\n'
 echo -en "\n********************************"
 counter=0
 for f in $(cat /tmp/BashTools/oldversion | tail -n +2); do
 	filename=$(cut -f 1 <<< $f)
 	oldversion=$(cut -f 2 <<< $f)
 	newversion=$(head -n 3 "${BASHTOOLS_PATH}/${filename}" | tail -n 1)
-	echo -e "\n${f}:"
+	echo -e "\n${filename}:"
 	echo -en "\tVersion ${oldversion:12} -> ${newversion:12}\n"
 	((++counter))
 done
