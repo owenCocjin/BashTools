@@ -71,6 +71,8 @@ To uninstall you must:
 
 - Delete the BashTools cloned repo.
 
+<br/>
+
 ## Bugs:
 
 * webnotes
