@@ -6,7 +6,7 @@
 ## Description: Reset wifi NIC
 ## Notes:
 
-resetWifi(){
+resetwifi(){
   sudo ip link set dev wlp2s0 down
   for i in {0..4}; do
     echo -n '.'

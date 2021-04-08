@@ -6,7 +6,7 @@
 ## Description: Replace all spaces with '_' for all files in current directory
 ## Notes:
 
-fillSpaces(){
+fillspaces(){
 	for i in *; do
 		old="$i"
 
