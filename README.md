@@ -44,12 +44,18 @@ After installing, you can run any of the following as commands:
 	* cd then ls into a directory
 * fillSpaces [v1.0]
 	* Replaces spaces in filenames
+* mvd [1.0]
+	* Move a file explicitly from ~/Downloads
 * n [v1.3]
 	* Send & dissociate a program from a terminal
 * resetWifi [v1.0]
 	* Restart a wifi card
 * stickynotes [v1.0]
 	* Create and manage stickynotes
+* todo [v1.0]
+	* Reads a todo list in the current directory
+* webnotes [v1.2]
+	* Open an editable webpage
 * wttr [v1.0]
 	* Get weather info
 
@@ -64,3 +70,11 @@ To uninstall you must:
 - Delete the symlink in the bashtools path. Default will be `/usr/local/bin/bashtools`.
 
 - Delete the BashTools cloned repo.
+
+## Bugs:
+
+* webnotes
+> (Untested on chrome) Firefox no longer allows html to be run directly from the URL bar. For the moment, you must manually go to the URL bar and hit <Enter>. This can be quickly achieved by typing <Ctrl+l><Enter>.
+
+* monloop
+> If a command takes a while to load, monloop will start flickering.
