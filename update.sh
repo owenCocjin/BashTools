@@ -1,15 +1,15 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.5.6
-## Date:    24/02/2021
+## Version:	1.6
+## Date:    2021.04.08
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
 ##    - Updated README.md, but won't show a version no.
 ## Update:
-##    - Fixed issue with updates saving to current directory (as opposed to BASHTOOLS_PATH)
-##    - Fixed README.md issue saving to BASHTOOLS_PATH
+##    - Changed how script downloads updates
+##    - Should now update ALL filed in Tools
 
 #----------------#
 #    FUNCTION    #
@@ -26,8 +26,10 @@ dwnldr(){
 	wget -O "${namepath}" $rawpath &>/dev/null
 	if [[ $? != 0 ]]; then
 		echo "[X]"
+		return 1
 	else
 		echo "[V]"
+		return 0
 	fi
 };#function()
 
@@ -56,25 +58,38 @@ if [[ ! ${menu} =~ ${menu_regex} ]] && [[ ${menu} != '' ]]; then
 fi
 
 #Save current file versions
-oldVersions=( )  #Shouldn't have a need to save names as order of tools shouldn't change
-for f in $(ls ${BASHTOOLS_PATH}); do
-	oldVersion+=( "$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)" )
+[[ ! -e /tmp/BashTools ]] && mkdir /tmp/BashTools
+
+echo -n '' > /tmp/BashTools/oldversion
+for f in $(cat .list.txt | tail -n +2); do  #Ignore the first line. This is just a readme
+	echo -en "${f}\t" >> /tmp/BashTools/oldversion
+	if [[ -f "${BASHTOOLS_PATH}/${f}" ]]; then
+		echo $(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1) >> /tmp/BashTools/oldversion
+	else
+		echo "none" >> /tmp/BashTools/oldversion
+	fi
 done
+#Download list from root
+[[ $(dwnldr ".list.txt" 'x') == '0' ]] && : || echo 'Failed to download list!' && exit 1
+
 
 #Download all raw files from github & overwrite old tools
-for f in $(ls ${BASHTOOLS_PATH}); do
+for f in $(cat .list.txt); do
 	dwnldr $f
 done
+
 #Download README
 dwnldr "README.md" 'x'
 
 #List updated versions
 echo -en "\n********************************"
 counter=0
-for f in $(ls ${BASHTOOLS_PATH}); do
-	newVersion=$(head -n 3 "${BASHTOOLS_PATH}/${f}" | tail -n 1)
+for f in $(cat /tmp/BashTools/oldversion | tail -n +2); do
+	filename=$(cut -f 1 <<< $f)
+	oldversion=$(cut -f 2 <<< $f)
+	newversion=$(head -n 3 "${BASHTOOLS_PATH}/${filename}" | tail -n 1)
 	echo -e "\n${f}:"
-	echo -en "\tVersion ${oldVersion[counter]:12} -> ${newVersion:12}\n"
+	echo -en "\tVersion ${oldversion:12} -> ${newversion:12}\n"
 	((++counter))
 done
 #List README.md updated version
