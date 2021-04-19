@@ -8,10 +8,15 @@ monloop(){
 		echo 'Missing command!'
 		exit 1
 	fi
+	if [[ -z ${2} ]]; then
+		delay=0.5
+	else
+		delay=${2}
+	fi
 
 	while :; do
 		clear
 		eval ${1}
-		sleep 0.5
+		sleep ${delay}
 	done
 }
