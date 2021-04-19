@@ -1,11 +1,13 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.0
+## Version: 1.1
 ## Date:    2021.04.19
 ## Description: Run a command on a loop
 ## Notes:
 ## Update:
 ##    - Added ability to control delay time by passing a second arg
+##    - User can manually refresh by passing 'x' as time arg.
+##      Pressing [Enter] refreshes in this mode
 monloop(){
 	if [[ -z ${1} ]]; then
 		echo 'Missing command!'
@@ -17,9 +19,17 @@ monloop(){
 		delay=${2}
 	fi
 
-	while :; do
-		clear
-		eval ${1}
-		sleep ${delay}
-	done
+	if [[ ${delay} == 'x' ]];then
+		while :; do
+			clear
+			eval ${1}
+			read menu
+		done
+	else
+		while :; do
+			clear
+			eval ${1}
+			sleep ${delay}
+		done
+	fi
 }
