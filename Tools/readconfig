@@ -1,0 +1,23 @@
+#!/bin/bash
+## Author:  Owen Cocjin
+## Version: 0.1
+## Date:    2021.07.05
+## Description: Reads all lines that don't start with \n or #
+## Notes:
+##  - If the user doesn't have permissions to read the file, it will ask for sudo
+## Update:
+readconfig(){
+	if [[ ${1} == '' ]]; then
+		echo '[|X]: Missing file name!'
+		return 1
+	elif [[ ! -f ${1} ]]; then
+		echo '[|X]: File does not exist!'
+		return 1
+	fi
+	#Check for read permission through head
+	if [[ $(head -n 1 ${1} &>/dev/null; echo $?) != '0' ]]; then
+		sudo egrep '^[^#].*' ${1}
+	else
+		egrep '^[^#].*' ${1}
+	fi
+}
