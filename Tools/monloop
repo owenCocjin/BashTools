@@ -1,17 +1,15 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.1
-## Date:    2021.04.19
+## Version: 1.2
+## Date:    2021.07.05
 ## Description: Run a command on a loop
 ## Notes:
 ## Update:
-##    - Added ability to control delay time by passing a second arg
-##    - User can manually refresh by passing 'x' as time arg.
-##      Pressing [Enter] refreshes in this mode
+##  - No longer closes entire shell when invalid command passed
 monloop(){
 	if [[ -z ${1} ]]; then
-		echo 'Missing command!'
-		exit 1
+		echo '[|X]: Missing command!'
+		return 1
 	fi
 	if [[ -z ${2} ]]; then
 		delay=0.5
