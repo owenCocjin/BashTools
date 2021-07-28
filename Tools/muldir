@@ -1,0 +1,22 @@
+#!/bin/bash
+## Author:  Owen Cocjin
+## Version: 1.0
+## Date:    2021.07.28
+## Description:    Sets the current directory, so when opening another terminal it opens here
+## Notes:
+##  - If you want to change the path muldir reads from, make sure to edit `.sources`
+muldir(){
+	if [[ ${1} == 'set' ]] || [[ ${1} == ]]; then
+		echo $PWD > ~/.muldir  #Edit `.sources` if changing path!
+		echo "Set to '${PWD}'!"
+	elif [[ ${1} == 'clear' ]]; then
+		echo -n '' > ~/.muldir  #Edit `.sources` if changing path!
+		echo "Cleared!"
+	else
+		echo 'muldir <OPTIONS>
+Set'"'"'s the current directory to be changed to whenever a new shell is opened.
+  Options:
+    set;   Set'"'"'s the current directory
+    clear; Clear'"'"'s the set directory (back to home)'
+	fi
+}
