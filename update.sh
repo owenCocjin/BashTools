@@ -102,7 +102,7 @@ for f in $(cat /tmp/BashTools/oldversion | tail -n +2); do
 	((++counter))
 done
 #List new files
-echo "[NEW FILES]"
+echo -e "\n[NEW FILES]"
 for f in ${newfiles[@]}; do
 	echo -e "\t${f}"
 done
