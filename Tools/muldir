@@ -6,7 +6,7 @@
 ## Notes:
 ##  - If you want to change the path muldir reads from, make sure to edit `.sources`
 muldir(){
-	if [[ ${1} == 'set' ]] || [[ ${1} == ]]; then
+	if [[ ${1} == 'set' ]] || [[ ${1} == '' ]]; then
 		echo $PWD > ~/.muldir  #Edit `.sources` if changing path!
 		echo "Set to '${PWD}'!"
 	elif [[ ${1} == 'clear' ]]; then
