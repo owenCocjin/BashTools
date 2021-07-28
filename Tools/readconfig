@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 0.1
+## Version: 1.0
 ## Date:    2021.07.05
 ## Description: Reads all lines that don't start with \n or #
 ## Notes:
