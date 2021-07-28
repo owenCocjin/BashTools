@@ -44,10 +44,16 @@ After installing, you can run any of the following as commands:
 	* cd then ls into a directory
 * fillSpaces [v1.0]
 	* Replaces spaces in filenames
+* monloop [v1.2]
+	* Loops a process. Good for monitoring processes such as a file downloading (monloop 'df -h /home;df /home')
+* muldir [v1.0]
+	* Sets the pwd to be opened on all new shells (that read .bashrc)
 * mvd [1.0]
 	* Move a file explicitly from ~/Downloads
 * n [v1.3]
 	* Send & dissociate a program from a terminal
+* readconfig [v1.0]
+	* Reads all uncommented lines of a config file that uses `#` as comments
 * resetWifi [v1.0]
 	* Restart a wifi card
 * stickynotes [v1.0]
