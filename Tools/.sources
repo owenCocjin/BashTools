@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.3
-## Date:    07/12/20
+## Version: 1.4
+## Date:    2021.07.28
 ## Title:   sources
 ## Description: Sources all functions
 ## Notes:
@@ -11,3 +11,7 @@
 for tool in $(ls ${BASHTOOLS_PATH}); do
 	. ${BASHTOOLS_PATH}/${tool}
 done
+#Change directory for muldir
+if [[ $(cat ~/.muldir) ]]; then
+	cd $(cat ~/.muldir)
+fi
