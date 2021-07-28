@@ -4,12 +4,14 @@
 .SubFunctions/_list.n
 .sources
 cl
-monloop
-n
-webnotes
 fillspaces
+monloop
+muldir
 mvd
+n
+readconfig
 resetwifi
 stickynotes
 todo
+webnotes
 wttr
