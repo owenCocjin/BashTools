@@ -1,15 +1,15 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.6
-## Date:    2021.04.08
+## Version:	1.7
+## Date:    2021.07.28
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
 ##    - Updated README.md, but won't show a version no.
 ## Update:
-##    - Changed how script downloads updates
-##    - Should now update ALL filed in Tools
+##    - Changes new files to execute permissions
+##    - Lists new files at end
 
 #----------------#
 #    FUNCTION    #
@@ -29,6 +29,7 @@ dwnldr(){
 		return 1
 	else
 		echo "[V]"
+		chmod +x ${namepath}
 		return 0
 	fi
 };#function()
@@ -76,7 +77,11 @@ if [[ $? != '0' ]]; then
 	exit 1
 fi
 #Download all raw files from github & overwrite old tools
+newfiles=()
 for f in $(cat .list.txt); do
+	if [[ ! -f ${BASHTOOLS_PATH}/${f} ]]; then
+		newfiles+=(${f})
+	fi
 	dwnldr $f
 done
 
@@ -85,7 +90,8 @@ dwnldr "README.md" 'x'
 
 #List updated versions
 IFS=$'\n'
-echo -en "\n********************************"
+echo -en "\n********************************
+[UPDATED]"
 counter=0
 for f in $(cat /tmp/BashTools/oldversion | tail -n +2); do
 	filename=$(cut -f 1 <<< $f)
@@ -94,6 +100,11 @@ for f in $(cat /tmp/BashTools/oldversion | tail -n +2); do
 	echo -e "\n${filename}:"
 	echo -en "\tVersion ${oldversion:12} -> ${newversion:12}\n"
 	((++counter))
+done
+#List new files
+echo "[NEW FILES]"
+for f in ${newfiles[@]}; do
+	echo -e "\t${f}"
 done
 #List README.md updated version
 
