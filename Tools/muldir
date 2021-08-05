@@ -1,10 +1,12 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.0
-## Date:    2021.07.28
+## Version: 1.1
+## Date:    2021.08.05
 ## Description:    Sets the current directory, so when opening another terminal it opens here
 ## Notes:
 ##  - If you want to change the path muldir reads from, make sure to edit `.sources`
+## Updates:
+##  - Added "goto" to allow movement to muldir directory from existing shell
 muldir(){
 	if [[ ${1} == 'set' ]] || [[ ${1} == '' ]]; then
 		echo $PWD > ~/.muldir  #Edit `.sources` if changing path!
@@ -12,6 +14,9 @@ muldir(){
 	elif [[ ${1} == 'clear' ]]; then
 		echo -n '' > ~/.muldir  #Edit `.sources` if changing path!
 		echo "Cleared!"
+	elif [[ ${1} == 'goto' ]]; then
+		curmuldir=$(cat ~/.muldir)
+		[[ ${curmuldir} != '' ]] && cd ${curmuldir} || echo 'No directory set!'
 	else
 		echo 'muldir <OPTIONS>
 Set'"'"'s the current directory to be changed to whenever a new shell is opened.
