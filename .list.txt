@@ -1,7 +1,5 @@
-.SubFunctions/README.md
-.SubFunctions/_help.n
-.SubFunctions/_kill.n
-.SubFunctions/_list.n
+.SubFunctions/_muldir.subfuncs
+.SubFunctions/_n.subfuncs
 .sources
 cl
 fillspaces
