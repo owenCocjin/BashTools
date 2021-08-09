@@ -1,12 +1,14 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.1
-## Date:    2021.08.05
+## Version: 1.2
+## Date:    2021.08.08
 ## Description:    Sets the current directory, so when opening another terminal it opens here
 ## Notes:
 ##  - If you want to change the path muldir reads from, make sure to edit `.sources`
 ## Updates:
-##  - Added "goto" to allow movement to muldir directory from existing shell
+##  - Added "print" to print the current muldir directory
+##  - Added "env" arg to set the MULDIR environment variable
+##  - Updated arguments to use new functions
 muldir(){
 	if [[ ${1} == 'set' ]] || [[ ${1} == '' ]]; then
 		echo $PWD > ~/.muldir  #Edit `.sources` if changing path!
@@ -15,13 +17,21 @@ muldir(){
 		echo -n '' > ~/.muldir  #Edit `.sources` if changing path!
 		echo "Cleared!"
 	elif [[ ${1} == 'goto' ]]; then
-		curmuldir=$(cat ~/.muldir)
+		curmuldir=$(_getPath.muldir)
 		[[ ${curmuldir} != '' ]] && cd ${curmuldir} || echo 'No directory set!'
+	elif [[ ${1} == 'print' ]]; then
+		echo $(_getPath.muldir)
+	elif [[ ${1} == 'env' ]]; then
+		export MULDIR=$(_getPath.muldir)
+		echo 'Set env var!'
 	else
 		echo 'muldir <OPTIONS>
 Set'"'"'s the current directory to be changed to whenever a new shell is opened.
   Options:
-    set;   Set'"'"'s the current directory
-    clear; Clear'"'"'s the set directory (back to home)'
+    clear; Clear'"'"'s the set directory (back to home)
+		env;   Set'"'"'s the MULDIR env var (FOR TESTING PURPOSES)
+		goto;  cd into muldir
+		print; Prints the current muldir
+    set;   Set'"'"'s the current directory'
 	fi
 }
