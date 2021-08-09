@@ -28,7 +28,7 @@ n(){
   elif [[ $1 == '-s' ]]; then
     ps aux | grep $2 | grep -v 'grep'
   elif [[ $1 == '-h' ]]; then
-    ${BASHTOOLS_PATH}/.SubFunctions/_help.n
+    _help.n
   else
     echo "Silencing & disassociating $1..."
     $@ &>/dev/null & disown
