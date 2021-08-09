@@ -1,0 +1,14 @@
+#!/bin/bash
+## Author:  Owen Cocjin
+## Version: 1.1
+## Date:    2021.08.08
+## Description:    Holds functions for n
+## Notes:
+_help.n(){
+	echo 'n <command -to -run>
+	-l	List stored processes w/name
+	-c	Clear the stored processes
+	-s <#>	Check if pid is alive
+	-k <#>	Kill process number (needs sudo)
+-h	Prints this page'
+}
