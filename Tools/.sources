@@ -11,6 +11,11 @@
 for tool in $(ls ${BASHTOOLS_PATH}); do
 	. ${BASHTOOLS_PATH}/${tool}
 done
+#Source the .SubFunctions directory so tools can use their functions
+cd ${BASHTOOLS_PATH}/.SubFunctions
+for subfuncs in $(ls); do
+	. ${subfuncs}
+done
 #Change directory for muldir
 if [[ $(cat ~/.muldir) ]]; then
 	cd $(cat ~/.muldir)
