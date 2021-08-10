@@ -1,20 +1,21 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.4
-## Date:    2021.07.28
+## Version: 1.5
+## Date:    2021.08.10
 ## Title:   sources
 ## Description: Sources all functions
 ## Notes:
-##	- Use BASHTOOLS_PATH env var
+##  - Use BASHTOOLS_PATH env var
+## Updates:
+##  - Fixed bug with muldir going to .SubFunctions directory if no muldir set
 
 #Change p's value to the bashTools directory
 for tool in $(ls ${BASHTOOLS_PATH}); do
 	. ${BASHTOOLS_PATH}/${tool}
 done
 #Source the .SubFunctions directory so tools can use their functions
-cd ${BASHTOOLS_PATH}/.SubFunctions
-for subfuncs in $(ls); do
-	. ${subfuncs}
+for subfuncs in $(ls ${BASHTOOLS_PATH}/.SubFunctions); do
+	. ${BASHTOOLS_PATH}/.SubFunctions/${subfuncs}
 done
 #Change directory for muldir
 if [[ $(cat ~/.muldir) ]]; then
