@@ -4,10 +4,12 @@
 ## Date:    13/12/20
 ## Title:   n
 ## Description: Send a command to background, silence it, disown it
+## Updates:
+##    - Added UID ext to end of nList file due to writing conflicts
 ## Notes:
 ##    - Added new SubFunctions path
 n(){
-	temp_list=/tmp/nList
+	temp_list="/tmp/nList.${UID}"  #Set t
 	if [[ ! -f ${temp_list} ]]; then touch ${temp_list}; chmod 666 ${temp_list}; fi
   # Process command
   if [[ $1 == '-l' ]]; then
