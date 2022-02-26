@@ -1,11 +1,11 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.0
+## Version: 1.0.1
 ## Date:    2022.02.26
 ## Description: Helper functions for readconfig
 
 _regexLine.readconfig(){
 	#The passed argument is the line to read
 	#Essentially, if the regex matches (starts with 0+ spaces, then a #), ignore
-	[[ ${1} =~  ^( *	*#).* ]] && : || echo ${1}
+	[[ ${1} =~  ^( *	*#).* ]] && : || echo "${1}"
 }
