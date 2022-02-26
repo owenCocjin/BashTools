@@ -1,15 +1,14 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.7
-## Date:    2021.07.28
+## Version:	1.8
+## Date:    2022.02.26
 ## Title:   update.sh
 ## Description: Updates all bashTools
 ## Notes:
 ##    - Requires 'wget'
 ##    - Updated README.md, but won't show a version no.
 ## Update:
-##    - Changes new files to execute permissions
-##    - Lists new files at end
+##    - Made output prettier
 
 #----------------#
 #    FUNCTION    #
@@ -25,10 +24,10 @@ dwnldr(){
 	fi
 	wget -O "${namepath}" $rawpath &>/dev/null
 	if [[ $? != 0 ]]; then
-		echo "[X]"
+		echo -e "\e[41m[X]\e[0m"
 		return 1
 	else
-		echo "[V]"
+		echo -e "\e[42m[V]\e[0m"
 		chmod +x ${namepath}
 		return 0
 	fi
@@ -90,22 +89,35 @@ dwnldr "README.md" 'x'
 
 #List updated versions
 IFS=$'\n'
-echo -en "\n********************************
-[UPDATED]"
+echo -e "\n********************************
+\e[92m[UPDATED]\e[0m"
 counter=0
 for f in $(cat /tmp/BashTools/oldversion | tail -n +2); do
 	filename=$(cut -f 1 <<< $f)
 	oldversion=$(cut -f 2 <<< $f)
+	oldversion="${oldversion:12}"
 	newversion=$(head -n 3 "${BASHTOOLS_PATH}/${filename}" | tail -n 1)
-	echo -e "\n${filename}:"
-	echo -en "\tVersion ${oldversion:12} -> ${newversion:12}\n"
-	((++counter))
+	newversion="${newversion:12}"
+	if [[ ${oldversion} != ${newversion} ]]; then
+		echo -e "  ${filename}:"
+		echo -en "    Version \e[93m${oldversion}\e[0m -> \e[92m${newversion}\e[0m\n"
+		((++counter))
+	fi
 done
+#Print no updates string
+if [[ ${counter} == 0 ]]; then
+	echo -e '  \e[93mNo files were updated!\e[0m'
+fi
+
 #List new files
-echo -e "\n[NEW FILES]"
-for f in ${newfiles[@]}; do
-	echo -e "\t${f}"
-done
+echo -e "\n\e[92m[NEW FILES]\e[0m"
+if [[ ${#newfiles[@]} == 0 ]]; then
+	echo -e '  \e[93mNo new files!\e[0m'
+else
+	for f in ${newfiles[@]}; do
+		echo -e "    ${f}"
+	done
+fi
 #List README.md updated version
 
 echo "********************************"
