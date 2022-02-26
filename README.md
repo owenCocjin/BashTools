@@ -86,3 +86,6 @@ To uninstall you must:
 
 * monloop
 > If a command takes a while to load, monloop will start flickering.
+
+* sourcing
+> After running update.sh, the user is asked to source .bashrc to complete updates. For some reason, this will cause bash to assume all listed tools are one string and say it isn't a valid path. Easy fix is to just reset the shell
