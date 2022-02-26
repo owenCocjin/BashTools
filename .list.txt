@@ -1,5 +1,6 @@
 .SubFunctions/_muldir.subfuncs
 .SubFunctions/_n.subfuncs
+.SubFunctions/_readconfig.subfuncs
 .sources
 cl
 fillspaces

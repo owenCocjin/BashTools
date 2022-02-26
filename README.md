@@ -52,7 +52,7 @@ After installing, you can run any of the following as commands:
 	* Move a file explicitly from ~/Downloads
 * n [v1.3]
 	* Send & dissociate a program from a terminal
-* readconfig [v1.0]
+* readconfig [v1.1]
 	* Reads all uncommented lines of a config file that uses `#` as comments
 * resetWifi [v1.0]
 	* Restart a wifi card
