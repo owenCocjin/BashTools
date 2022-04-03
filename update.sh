@@ -8,7 +8,7 @@
 ##    - Requires 'wget'
 ##    - Updated README.md, but won't show a version no.
 ## Update:
-##    - Made output prettier
+##    - Don't add install.sh and update.sh to oldversion file
 
 #----------------#
 #    FUNCTION    #
@@ -70,10 +70,11 @@ for f in $(cat .list.txt | tail -n +2); do  #Ignore the first line. This is just
 	fi
 done
 #Add install.sh and update.sh to old version list
-echo -n "install.sh\t" >> /tmp/BashTools/oldversion
-echo $(head -n 3 "install.sh" | tail -n 1) >> /tmp/BashTools/oldversion
-echo -n "update.sh\t" >> /tmp/BashTools/oldversion
-echo $(head -n 3 "update.sh" | tail -n 1) >> /tmp/BashTools/oldversion
+# echo -en "install.sh\t" >> /tmp/BashTools/oldversion
+# echo $(head -n 3 "install.sh" | tail -n 1) >> /tmp/BashTools/oldversion
+# echo -en "update.sh\t" >> /tmp/BashTools/oldversion
+# echo $(head -n 3 "update.sh" | tail -n 1) >> /tmp/BashTools/oldversion
+
 #Download list from root
 dwnldr ".list.txt" 'x'
 if [[ $? != '0' ]]; then
