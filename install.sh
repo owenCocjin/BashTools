@@ -1,12 +1,14 @@
 #!/bin/bash
 ## Author:	Owen Cocjin
-## Version:	1.4.1
-## Date:    16/12/20
-## Title:   install.sh
+## Version:	1.4.2
+## Date:    2022.04.03
 ## Description: Installs BashTools
 ## Notes:
-##    - Must run as root
-##    - Changed comments
+##  - Must run as root
+##  - Changed comments
+## Updates:
+##  - Changed the way we determine home dir to "$HOME"
+
 ### Edit the 'parentPath' var to wherever BashTools should install! ###
 ###############################
 parentPath='/usr/local/bin' ###
@@ -17,7 +19,7 @@ if [[ $(id -u) != '0' ]]; then
 	echo "[|X] Run as root (would probably have failed otherwise)!"
 	exit 1
 else
-	home_path=$([[ -z ${SUDO_USER} ]] && echo "/root" || echo "/home/${SUDO_USER}")
+	home_path=$([[ -z ${SUDO_USER} ]] && echo "/root" || echo $HOME)
 fi
 
 #Create temp var for bashtools home directory
