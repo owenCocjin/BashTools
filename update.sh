@@ -86,6 +86,9 @@ done
 
 #Download README
 dwnldr "README.md" 'x'
+#Download update.sh and install.sh
+dwnldr "update.sh" 'x'
+dwnldr "install.sh" 'x'
 
 #List updated versions
 IFS=$'\n'
