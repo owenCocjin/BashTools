@@ -1,11 +1,12 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.4
+## Version: 1.4.1
 ## Date:    2021.10.15
 ## Title:   n
 ## Description: Send a command to background, silence it, disown it
 ## Updates:
 ##    - Added UID ext to end of nList file due to writing conflicts
+##    - Fixed "egrep is deprecated" messages
 ## Notes:
 ##    - Added new SubFunctions path
 n(){
