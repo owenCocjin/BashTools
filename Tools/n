@@ -1,7 +1,7 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
 ## Version: 1.4.1
-## Date:    2021.10.15
+## Date:    2022.10.25
 ## Title:   n
 ## Description: Send a command to background, silence it, disown it
 ## Updates:
