@@ -8,6 +8,7 @@
 ## Updates:
 ##  - To set a dir to muldir, run "muldir set".
 ##    To move to the muldir directory, run "muldir" or "muldir goto"
+##  - 'set' command also calls 'env'
 muldir(){
 	if [[ ${1} == '' ]] || [[ ${1} == 'goto' ]]; then
 		curmuldir=$(_getPath.muldir)
@@ -15,6 +16,7 @@ muldir(){
 	elif [[ ${1} == 'set' ]]; then
 		echo $PWD > ~/.muldir  #Edit `.sources` if changing path!
 		echo "Set to '${PWD}'!"
+		muldir env
 	elif [[ ${1} == 'clear' ]]; then
 		echo -n '' > ~/.muldir  #Edit `.sources` if changing path!
 		echo "Cleared!"
