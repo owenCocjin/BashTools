@@ -17,7 +17,11 @@ done
 for subfuncs in $(ls ${BASHTOOLS_PATH}/.SubFunctions); do
 	. ${BASHTOOLS_PATH}/.SubFunctions/${subfuncs}
 done
+
 #Change directory for muldir
 if [[ $(cat ~/.muldir) ]]; then
 	cd $(cat ~/.muldir)
 fi
+
+#Set the muldir environment
+export MULDIR=$(cat ~/.muldir)
