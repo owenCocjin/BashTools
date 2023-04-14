@@ -1,13 +1,14 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.5
-## Date:    2021.08.10
+## Version: 1.5.1
+## Date:    2023.04.14
 ## Title:   sources
 ## Description: Sources all functions
 ## Notes:
 ##  - Use BASHTOOLS_PATH env var
 ## Updates:
 ##  - Fixed bug with muldir going to .SubFunctions directory if no muldir set
+##  - Fixed bug with ls including ANSI chars if coloured
 
 #Change p's value to the bashTools directory
 for tool in $(ls --color=none ${BASHTOOLS_PATH}); do
