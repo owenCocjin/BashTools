@@ -10,11 +10,11 @@
 ##  - Fixed bug with muldir going to .SubFunctions directory if no muldir set
 
 #Change p's value to the bashTools directory
-for tool in $(ls ${BASHTOOLS_PATH}); do
+for tool in $(ls --color=none ${BASHTOOLS_PATH}); do
 	. ${BASHTOOLS_PATH}/${tool}
 done
 #Source the .SubFunctions directory so tools can use their functions
-for subfuncs in $(ls ${BASHTOOLS_PATH}/.SubFunctions); do
+for subfuncs in $(ls --color=none ${BASHTOOLS_PATH}/.SubFunctions); do
 	. ${BASHTOOLS_PATH}/.SubFunctions/${subfuncs}
 done
 
