@@ -1,13 +1,15 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.1.1
-## Date:    2022.02.26
+## Version: 1.1.2
+## Date:    2023.04.14
 ## Description: Reads all lines that don't start with \n or #
 ## Notes:
 ##  - If the user doesn't have permissions to read the file, it will ask for sudo
 ## Update:
 ##  - Added a helper function to read the line
 ##    I thought the helper function would have to be longer hahaha
+## To-Do:
+##  - Allow a flag to only read comments (inverse of this original function)
 readconfig(){
 	IFS=''
 	if [[ ${1} == '' ]]; then

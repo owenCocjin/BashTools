@@ -1,11 +1,18 @@
 #!/bin/bash
 ## Author:  Owen Cocjin
-## Version: 1.0.1
-## Date:    2022.02.26
+## Version: 1.0.2
+## Date:    2023.04.14
 ## Description: Helper functions for readconfig
+## Updates:
+##  - Ignores empty newlines
 
 _regexLine.readconfig(){
 	#The passed argument is the line to read
 	#Essentially, if the regex matches (starts with 0+ spaces, then a #), ignore
-	[[ ${1} =~  ^( *	*#).* ]] && : || echo "${1}"
+	if [[ -z ${2} ]]; then  #Print only non-commented lines
+		[[ ${1} =~  ^([\ \	]*(\#|\/\/).*|$) ]] && : || echo "${1}"
+	else  #Print only commented lines
+		[[ ${1} =~  ^([\ \	]*(\#|\/\/).*|$) ]] && echo "${1}" || :
+	fi
+	# [[ ${1} =~  ^ *	*#.* ]] && : || echo "${1}"
 }
